@@ -18,7 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserAddressService {
     private final UserAddressRepository userAddressRepository;
     private final ViaCepConsumerFeign viaCepConsumerFeign;
-
     @Transactional
     public UserResponseAddressDTO complementAddress(UserCreateAddressDTO dto){
         UserAddress address = UserAddressMapper.toUser(dto);
@@ -28,7 +27,4 @@ public class UserAddressService {
         userAddressRepository.save(address);
         return UserAddressMapper.toDTO(address);
     }
-
-
-
 }
